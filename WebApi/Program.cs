@@ -1,11 +1,27 @@
+using Bussines.Abstract;
+using Bussines.Concrate;
+using DataAccess;
+using DataAccess.Abstract;
+using DataAccess.Concrate.Contexts;
+using DataAccess.Concrate.EntityFramework;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<ECommerceDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Local"));
+});
+
+
+
+builder.Services.AddScoped<IUserDal, EfUserDal>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 
 var app = builder.Build();
 

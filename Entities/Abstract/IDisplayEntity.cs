@@ -1,4 +1,4 @@
-﻿namespace Entities.Abstracr
+﻿namespace Entities.Abstract
 {
     public interface IDisplayEntity
     {

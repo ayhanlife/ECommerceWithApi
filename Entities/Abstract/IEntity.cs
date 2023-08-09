@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Abstracr
+namespace Entities.Abstract
 {
     /// <summary>
     /// Veritabanına karşılık gelen tabloalrda bulunacak (imza)

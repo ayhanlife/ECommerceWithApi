@@ -1,4 +1,4 @@
-﻿using Entities.Abstracr;
+﻿using Entities.Abstract;
 
 namespace Entities.Concrate.BaseEntities
 {
