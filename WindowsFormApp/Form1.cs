@@ -1,5 +1,5 @@
-using Entities.Dtos.UserDtos;
-using Entities.Enums;
+using Entities.Dtos.User;
+
 using System.Net.Http.Json;
 
 namespace WindowsFormApp

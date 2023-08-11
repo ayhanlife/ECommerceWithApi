@@ -1,5 +1,6 @@
 ﻿using Entities.Concrate;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace DataAccess.Concrate.Contexts
 {
@@ -8,12 +9,16 @@ namespace DataAccess.Concrate.Contexts
         public ECommerceDbContext(DbContextOptions<ECommerceDbContext> options) : base(options)
         { }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<AppUser> Users { get; set; }
+        public DbSet<AppOperationClaim> AppOperationClaims { get; set; }
+        public DbSet<AppUserAppOperationClaim> AppUserAppOperationClaims { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<User>().ToTable("Users");
             base.OnModelCreating(modelBuilder);
+        Assembly assembly = GetType().Assembly;
+            modelBuilder.ApplyConfigurationsFromAssembly(assembly);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
